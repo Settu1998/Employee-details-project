@@ -1,0 +1,32 @@
+.employee-list {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 1200px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.employee-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.employee-list th, .employee-list td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.employee-list th {
+  background-color: #007BFF;
+  color: white;
+}
+
+.employee-list tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.employee-list button {
+  margin: 0 5px;
+}
