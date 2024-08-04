@@ -28,7 +28,7 @@ const EmployeeForm = ({ onFormSubmit }) => {
     }
 
     try {
-      await axios.post('http://localhost:5000/api/v1/tasks', formData);
+      await axios.post(`${process.env.REACT_APP_API}/api/v1/tasks`, formData);
       onFormSubmit();
     } catch (err) {
       console.error("Error submitting form: ", err);

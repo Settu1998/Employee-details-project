@@ -13,7 +13,7 @@ const EmployeeList = () => {
   useEffect(() => {
     const fetchEmployees = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/v1/tasks');
+        const res = await axios.get(`${process.env.REACT_APP_API}/api/v1/tasks`);
         if (res.data.tasks && Array.isArray(res.data.tasks)) {
           setEmployees(res.data.tasks);
         } else {
@@ -21,6 +21,7 @@ const EmployeeList = () => {
         }
       } catch (err) {
         console.error("Error fetching employees: ", err);
+        console.log(`${process.env.REACT_APP_API}/api/v1/tasks`)
       }
     };
     fetchEmployees();
@@ -29,7 +30,7 @@ const EmployeeList = () => {
   // Handle delete employee
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/v1/tasks/${id}`);
+      await axios.delete(`${process.env.REACT_APP_API}/api/v1/tasks/${id}`);
       setEmployees(employees.filter(employee => employee._id !== id));
     } catch (err) {
       console.error("Error deleting employee: ", err);
@@ -45,7 +46,7 @@ const EmployeeList = () => {
   const handleUpdated = async () => {
     setEditEmployeeId(null); // Reset edit mode
     try {
-      const res = await axios.get('http://localhost:5000/api/v1/tasks');
+      const res = await axios.get(`${process.env.REACT_APP_API}/api/v1/tasks`);
       if (res.data.tasks && Array.isArray(res.data.tasks)) {
         setEmployees(res.data.tasks);
       } else {

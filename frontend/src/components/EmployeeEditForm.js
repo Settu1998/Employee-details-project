@@ -18,7 +18,7 @@ const EmployeeEditForm = ({ employeeId, onUpdated }) => {
   useEffect(() => {
     const fetchEmployee = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/v1/tasks/${employeeId}`);
+        const res = await axios.get(`${process.env.REACT_APP_API}/api/v1/tasks/${employeeId}`);
         console.log(res.data);
         if (res.data && res.data.task) {
           const {f_id, f_name, f_Email, f_Mobile, f_Designation, f_gender, f_Course } = res.data.task;
@@ -63,7 +63,7 @@ const EmployeeEditForm = ({ employeeId, onUpdated }) => {
 
   const handleUpdate = async () => {
     try {
-      const res = await axios.put(`http://localhost:5000/api/v1/tasks/${employeeId}`, employee);
+      const res = await axios.put(`${process.env.REACT_APP_API}/api/v1/tasks/${employeeId}`, employee);
       if (res.data && res.data.task) {
         console.log("Update successful:", res.data.task);
         onUpdated(); // Notify parent component of update
